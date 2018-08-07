@@ -7,6 +7,10 @@ const app         = express();
 
 const port        = process.env.port || 8000;
 
+app.get("/", function(req, res) {
+    res.send("welcome to nodeJS App")
+})
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 MongoClient.connect(db.url, (err, database) => {
