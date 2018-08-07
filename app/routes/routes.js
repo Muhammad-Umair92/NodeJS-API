@@ -3,7 +3,6 @@ var ObjectID = require('mongodb').ObjectID
 module.exports = function(app, db){
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
-        // console.log(id,"iddddddddddddddddddddddddddddddddddd")
         const details = {'_id': new ObjectID(id)};
         db.collection('notes').findOne(details, (err, item) => {
             if(err) {
@@ -17,7 +16,6 @@ module.exports = function(app, db){
 
     app.delete('/notes/:id', (req, res) => {
         const id = req.params.id;
-        // console.log(id,"iddddddddddddddddddddddddddddddddddd")
         const details = {'_id': new ObjectID(id)};
         db.collection('notes').remove(details, (err, item) => {
             if(err) {
